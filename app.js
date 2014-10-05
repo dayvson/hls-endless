@@ -5,11 +5,11 @@ var cors = require('cors');
 var helpers = require('./helpers');
 var gear1 = __dirname + "/public/bipbop_4x3/gear1/prog_index.m3u8";
 var startTime = Date.now();
-console.log("START TIME", startTime);
 var playlistInfo = helpers.getSegmentsDuration(gear1);
-
+console.log("Total duration", playlistInfo);
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
+
 app.get('/bitrate_:id.m3u8', function(req, res, next){
   var id =parseInt(req.param('id'),10);
   if(isNaN(id) || id > 4){
@@ -17,7 +17,6 @@ app.get('/bitrate_:id.m3u8', function(req, res, next){
     return;
   }
   var now = Date.now();
-  console.log("NOW", now);
   var delta = (now-startTime)/1000;
   var totalLoops = Math.floor(delta/playlistInfo.totalDuration);
   var deltaInLoop = delta - (playlistInfo.totalDuration * totalLoops);
@@ -31,7 +30,7 @@ app.get('/bitrate_:id.m3u8', function(req, res, next){
     if(deltaInLoop > 0){
       currentSegment++;
     }else if(segments.length < helpers.maxSegmentsInPlaylist){
-      videoPath = ",\n/bipbop_4x3/gear"+id+"/segment_" + i + ".ts";
+      videoPath = ",\n/bipbop_4x3/gear"+id+"/segment_" + i + (id != 0 ? ".ts": ".aac");
       segments.push("#EXTINF:" + _segment + videoPath);
     }else{
       break;
