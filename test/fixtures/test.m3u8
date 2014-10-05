@@ -1,0 +1,15 @@
+#EXTM3U
+#EXT-X-TARGETDURATION:1
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:1.0,	
+fileSequence0.aac
+#EXTINF:1.1,	
+fileSequence1.aac
+#EXTINF:1.2,	
+fileSequence2.aac
+#EXTINF:1.3,	
+fileSequence3.aac
+#EXTINF:1.4,	
+fileSequence4.aac
