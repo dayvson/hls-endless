@@ -8,14 +8,29 @@
     "start": "./node_modules/pm2/bin/pm2 start app.js -i max  --name=livehls",
     "stop": "./node_modules/pm2/bin/pm2 kill"
   },
+  "bin": {
+    "hlslive": "./bin/hlslive"
+  },
   "keywords": [
     "hls",
     "live",
     "video",
     "video-test",
+    "microservice",
+    "tools",
+    "cli",
     "m3u8",
     "iOS",
-    "streaming"
+    "html5",
+    "flashvideo",
+    "flash",
+    "android",
+    "stream",
+    "streaming",
+    "endless video",
+    "endless live",
+    "loop hls",
+    "video loop"
   ],
   "author": "Maxwell Dayvson Da Silva",
   "license": "MIT",
