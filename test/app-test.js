@@ -21,14 +21,27 @@ describe("HLS Live infinite loop routes", function(){
       done();
     });
   });
-  it('should load the bitrate after 10 seconds to test the loop', function(done){
-    clock = sinon.useFakeTimers(1000 * 1800);
+
+  it('should load the bitrate 0 the audio only', function(done){
+
+    request(app)
+    .get('/bitrate_0.m3u8')
+    .expect(200)
+    .end(function(err, res){
+      res.type.should.equal('application/vnd.apple.mpegurl');
+      res.text.indexOf('/bipbop_4x3/gear0/segment_0.aac').should.greaterThan(-1);
+      done();
+    });
+  });
+
+  it('should load the bitrate after 209 seconds to test the loop', function(done){
+    clock = sinon.useFakeTimers(1000 * 209);
     request(app)
       .get('/bitrate_1.m3u8')
       .expect(200)
       .end(function(err, res){
         res.type.should.equal('application/vnd.apple.mpegurl');
-        res.text.indexOf('/bipbop_4x3/gear1/segment_180.ts').should.greaterThan(-1);
+        res.text.indexOf('/bipbop_4x3/gear1/segment_20.ts').should.greaterThan(-1);
         done();
       });
     clock.restore();
@@ -39,7 +52,8 @@ describe("HLS Live infinite loop routes", function(){
       result.segments.length.should.equal(5);
       result.totalDuration.should.equal(6);
   });
-  it('shoud return a 404', function(done){
+
+  it('shoud return a 404 if a bitrate higher the 4 is passed', function(done){
     request(app)
     .get('/bitrate_5.m3u8')
     .expect(404)
