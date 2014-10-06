@@ -2,7 +2,7 @@ HLS Endless
 ===========
 <img src="https://travis-ci.org/dayvson/hls-endless.svg?branch=master"/>
 
-It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.
+HLS server that delivers live streams in a loop. It has four audio/video bitrates and one audio-only.
 
 ##Install HLS-Endless
 ```Bash
@@ -31,7 +31,7 @@ If you want to check the stream is available on: https://developer.apple.com/res
 
 
 ## How I Set It Up To Run Locally?
-Requirements: *Confirm you have Node v0.10 installed.*
+Requirements: *Confirm you have Node v0.10 or superior installed.*
 
 ####Step 1: install all required npm modules
 
