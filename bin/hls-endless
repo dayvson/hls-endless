@@ -3,14 +3,14 @@ var program = require('commander');
 var exec = require('child_process').exec;
 var chalk = require('chalk');
 program
-  .version('0.3.0');
+  .version('0.3.1');
 
 program
   .command('start')
   .description('Start the HLS server')
   .action(function(){
     console.log('Starting the HLS server');
-    exec('./node_modules/pm2/bin/pm2 start app.js  --name=livehls',function(error, stdout, stderr){
+    exec(__dirname + '/../node_modules/pm2/bin/pm2 start ' + __dirname +'/../app.js  --name=livehls',function(error, stdout, stderr){
         console.log('stdout:' + stdout);
         console.log("######################### RESOURCES AVAILABLE #################################");
         console.log('Variant Playlist:', chalk.green('http://localhost:6060/master.m3u8') );
@@ -27,7 +27,7 @@ program
   .description('Stop the HLS server')
   .action(function(){
     console.log( chalk.red('Killing HLS endless') );
-    exec('./node_modules/pm2/bin/pm2 kill');
+    exec(__dirname + '/../node_modules/pm2/bin/pm2 kill');
     console.log(chalk.green('[OK]'));
   });
 
