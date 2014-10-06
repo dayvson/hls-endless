@@ -6,7 +6,6 @@ var helpers = require('./helpers');
 var gear1 = __dirname + "/public/bipbop_4x3/gear1/prog_index.m3u8";
 var startTime = Date.now();
 var playlistInfo = helpers.getSegmentsDuration(gear1);
-console.log("Total duration", playlistInfo);
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
