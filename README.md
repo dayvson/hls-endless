@@ -1,13 +1,13 @@
 hls-endless
 ===========
 
-It is a HLS server that a deliver a live streams in loop, it has four audio/video bitrates and one audio-only.
+It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.
 
 
-##The resources are:
+##The resources are avaiable:
 
 * Multi bitrate, variant playlist: http://localhost:6060/master.m3u8
-* Single bitrate: http://localhost:6060/bitrate_[1-4].m3u8
+* Single bitrate: http://localhost:6060/bitrate_[0-4].m3u8
 
 
 ##Video provided by Apple

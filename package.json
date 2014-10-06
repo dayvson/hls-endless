@@ -1,10 +1,10 @@
 {
-  "name": "infinite-live-hls",
-  "version": "0.1.0",
-  "description": "It is a HLS server that streams a 30 minutes test live video in loop, four audio/video bitrates and an audio-only are available in this playlist m3u8.",
+  "name": "hls-endless",
+  "version": "0.2.0",
+  "description": "It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html",
+    "test": " ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html",
     "start": "./node_modules/pm2/bin/pm2 start app.js -i max  --name=livehls",
     "stop": "./node_modules/pm2/bin/pm2 kill"
   },
