@@ -1,6 +1,7 @@
 HLS Endless
 ===========
-<img src="https://travis-ci.org/dayvson/hls-endless.svg?branch=master"/>
+[![Travis CI](https://travis-ci.org/dayvson/hls-endless.svg?branch=master)](https://travis-ci.org/dayvson/hls-endless.svg?branch=master)
+ [![Code Climate](https://codeclimate.com/github/dayvson/hls-endless/badges/gpa.svg)](https://codeclimate.com/github/dayvson/hls-endless)
 
 HLS server that delivers live streams in a loop. It has four audio/video bitrates and one audio-only.
 
