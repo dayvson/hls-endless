@@ -1,9 +1,23 @@
-hls-endless
+HLS Endless
 ===========
 <img src="https://travis-ci.org/dayvson/hls-endless.svg?branch=master"/>
 
 It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.
 
+##Install HLS-Endless
+```Bash
+npm install hls-endless -g
+```
+
+##Starting the application
+```Bash
+hls-endless start
+```
+
+##Stop the application
+```Bash
+hls-endless stop
+```
 
 ##The resources are avaiable:
 
@@ -30,16 +44,4 @@ npm install .
 ####Step 2: Run the tests
 ```Bash
 npm test
-```
-
-####Step 3: Start the application
-
-```Bash
-npm start
-```
-
-####Step 4: Stop the application
-
-```Bash
-npm stop
 ```
