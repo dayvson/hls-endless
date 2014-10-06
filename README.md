@@ -21,8 +21,12 @@ hls-endless stop
 
 ##The resources are avaiable:
 
-* Multi bitrate, variant playlist: http://localhost:6060/master.m3u8
-* Single bitrate: http://localhost:6060/bitrate_[0-4].m3u8
+* Multi bitrate, variant playlist: [http://localhost:6060/master.m3u8](http://localhost:6060/master.m3u8)
+* [Audio only](http://localhost:6060/bitrate_1.m3u8) - 22.050Hz stereo @ 40 kbps
+* [Bitrate 1](http://localhost:6060/bitrate_1.m3u8)  - 400x300 @ 232 kbps
+* [Bitrate 2](http://localhost:6060/bitrate_2.m3u8)  - 640x480 @ 650 kbps
+* [Bitrate 3](http://localhost:6060/bitrate_3.m3u8)  - 640x480 @ 1 Mbps
+* [Bitrate 4](http://localhost:6060/bitrate_4.m3u8)  - 960x720 @ 2 Mbps
 
 
 ##Video provided by Apple
