@@ -1,13 +1,12 @@
 var express = require('express');
 var fs = require('fs');
 var app = express();
-var cors = require('cors');
 var helpers = require('./helpers');
 var gear1 = __dirname + "/public/bipbop_4x3/gear1/prog_index.m3u8";
 var startTime = Date.now();
 var playlistInfo = helpers.getSegmentsDuration(gear1);
 app.use(express.static(__dirname + '/public'));
-app.use(cors());
+
 
 app.get('/bitrate_:id.m3u8', function(req, res, next){
   var id =parseInt(req.param('id'),10);
