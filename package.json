@@ -1,6 +1,6 @@
 {
   "name": "hls-endless",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.",
   "main": "app.js",
   "scripts": {
