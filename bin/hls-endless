@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+var program = require('commander');
+var exec = require('child_process').exec;
+var chalk = require('chalk');
+program
+  .version('0.3.0');
+
+program
+  .command('start')
+  .description('Start the HLS server')
+  .action(function(){
+    console.log('Starting the HLS server');
+    exec('./node_modules/pm2/bin/pm2 start app.js  --name=livehls',function(error, stdout, stderr){
+        console.log('stdout:' + stdout);
+        console.log("######################### RESOURCES AVAILABLE #################################");
+        console.log('Variant Playlist:', chalk.green('http://localhost:6060/master.m3u8') );
+        console.log('Single A/V bitrate:', chalk.green('HD: http://localhost:6060/bitrate_[1|4].m3u8') );
+        console.log('Audio Only:', chalk.green('http://localhost:6060/bitrate_0.m3u8') );
+        console.log("######################### RESOURCES AVAILABLE #################################");
+        console.log(chalk.green('[OK]'));
+    });
+    
+  });
+
+program
+  .command('stop')
+  .description('Stop the HLS server')
+  .action(function(){
+    console.log( chalk.red('Killing HLS endless') );
+    exec('./node_modules/pm2/bin/pm2 kill');
+    console.log(chalk.green('[OK]'));
+  });
+
+program.parse(process.argv);
+
+if (process.argv.length == 2) {
+  program.parse(process.argv);
+  program.outputHelp();
+}
