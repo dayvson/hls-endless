@@ -1,5 +1,6 @@
 hls-endless
 ===========
+<img src="https://travis-ci.org/dayvson/hls-endless.svg?branch=master"/>
 
 It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.
 
