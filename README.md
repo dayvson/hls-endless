@@ -26,8 +26,7 @@ hls-endless stop
 
 
 ##Video provided by Apple
-The video used here is a 4x3 Apple's basic stream video with 4 bitrates, Apple's entire video has around 30 minutes but because I don't want to blowup this repo I only left 3:30 minutes of video and since it will loop forever it should be fine. 
-If you want to check the stream is available on: https://developer.apple.com/resources/http-streaming/examples/
+The video used is [Apple’s 4x3 basic stream](https://developer.apple.com/resources/http-streaming/examples/) example with 4 bitrates. The full video is around 30 minutes long but since I didn’t want the repo to be huge, I only used 3 minutes and 30 seconds of it. This should be fine since the video will loop forever.
 
 
 ## How I Set It Up To Run Locally?
