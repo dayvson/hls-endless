@@ -1,10 +1,10 @@
 {
   "name": "hls-endless",
-  "version": "0.3.1",
-  "description": "It is a HLS server that deliver a live streams in loop, it has four audio/video bitrates and one audio-only.",
+  "version": "0.3.2",
+  "description": "HLS server that delivers live streams in a loop. It has four audio/video bitrates and one audio-only.",
   "main": "app.js",
   "scripts": {
-    "test": " ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html",
+    "test": " ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=lcov",
     "start": "./node_modules/pm2/bin/pm2 start app.js -i max  --name=livehls",
     "stop": "./node_modules/pm2/bin/pm2 kill"
   },
