@@ -19,12 +19,24 @@ program
         console.log("######################### RESOURCES AVAILABLE #################################");
         console.log(chalk.green('[OK]'));
     });
-    
+
   });
 
 program
   .command('stop')
-  .description('Stop the HLS server')
+  .description('Stop the HLS stream')
+  .action(function(){
+    console.log( chalk.red('Stopping the HLS stream') );
+    exec(__dirname + '/../node_modules/pm2/bin/pm2 sendSignal SIGUSR1 livehls',function(error, stdout, stderr){
+        console.log('stdout:' + stdout);
+    console.log( chalk.red('stream ended') );
+        console.log(chalk.green('[OK]'));
+    });
+  });
+
+program
+  .command('kill')
+  .description('Kill the HLS server')
   .action(function(){
     console.log( chalk.red('Killing HLS endless') );
     exec(__dirname + '/../node_modules/pm2/bin/pm2 kill');
