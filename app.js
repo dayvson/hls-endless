@@ -5,8 +5,13 @@ var helpers = require('./helpers');
 var gear1 = __dirname + "/public/bipbop_4x3/gear1/prog_index.m3u8";
 var startTime = Date.now();
 var playlistInfo = helpers.getSegmentsDuration(gear1);
+var endStream = false;
+
 app.use(express.static(__dirname + '/public'));
 
+process.on('SIGUSR1', function(){
+  endStream = true;
+});
 
 app.get('/bitrate_:id.m3u8', function(req, res, next){
   var id =parseInt(req.param('id'),10);
@@ -35,7 +40,12 @@ app.get('/bitrate_:id.m3u8', function(req, res, next){
     }
   }
   m3u8Template = "#EXTM3U\n#EXT-X-TARGETDURATION:11\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:"+(sequence+currentSegment);
-  m3u8Template+= "\n"+segments.join('\n');
+  m3u8Template += "\n"+segments.join('\n');
+
+  if (endStream) {
+    m3u8Template += "#EXT-X-ENDLIST\n";
+  }
+
   res.contentType('application/vnd.apple.mpegurl');
   res.send(m3u8Template);
 
