@@ -23,7 +23,6 @@ describe("HLS Live infinite loop routes", function(){
   });
 
   it('should load the bitrate 0 the audio only', function(done){
-
     request(app)
     .get('/bitrate_0.m3u8')
     .expect(200)
@@ -42,6 +41,19 @@ describe("HLS Live infinite loop routes", function(){
       .end(function(err, res){
         res.type.should.equal('application/vnd.apple.mpegurl');
         res.text.indexOf('/bipbop_4x3/gear1/segment_20.ts').should.greaterThan(-1);
+        done();
+      });
+    clock.restore();
+  });
+  it('should change the m3u8 from live to vod', function(done){
+    process.kill(process.pid,"SIGUSR1");
+    clock = sinon.useFakeTimers(1000 * 209);
+    request(app)
+      .get('/bitrate_1.m3u8')
+      .expect(200)
+      .end(function(err, res){
+        res.type.should.equal('application/vnd.apple.mpegurl');
+        res.text.indexOf('#EXT-X-PLAYLIST-TYPE:VOD').should.greaterThan(-1);
         done();
       });
     clock.restore();
